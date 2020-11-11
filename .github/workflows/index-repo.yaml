@@ -1,0 +1,37 @@
+name: Index repo
+
+on:
+  repository_dispatch:
+    types:
+    - chart-available
+
+jobs:
+  index:
+    name: Index Chart Repo
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        path: ./helm-repo
+        token: ${{ secret.PAT_GITHUB }}
+
+    - name: Checkout ${{ github.event.client_payload.chart_repository }}
+      uses: actions/checkout@v2
+      with:
+        repository: ${{ github.event.client_payload.chart_repository }}
+        path: ./helm-chart
+        token: ${{ secret.PAT_GITHUB }}
+
+    - name: Package Chart
+      run: |
+        helmVersion=$(grep -Po "^version:\s?(\d+\.\d+\.\d+)$" ./helm-chart/${{ github.event.client_payload.chart_path}}/Chart.yaml | sed -E 's/version:\s?//')
+        appVersion=$(grep -Po "^appVersion:\s?(\d+\.\d+\.\d+)$" ./helm-chart/${{ github.event.client_payload.chart_path}}/Chart.yaml |sed -E 's/appVersion:\s?//')
+        chartName=$(grep -Po "^name:\s?(.+)$" ./helm-chart/${{ github.event.client_payload.chart_path}}/Chart.yaml | sed -E 's/name:\s?//')
+
+        helm package ./helm-chart/${{ github.event.client_payload.chart_path}} -u -d ./helm-repo
+        cd ./helm-repo
+        helm repo index . --url https://alexismtr.github.io/poseidon-helm-chart/ --merge index.yaml
+        git add .
+        git commit -a -m "$chartName: index version $helmVersion (appVersion $appVersion)"
+        git push

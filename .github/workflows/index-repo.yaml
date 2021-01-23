@@ -9,6 +9,8 @@ jobs:
   index:
     name: Index Chart Repo
     runs-on: ubuntu-latest
+    env:
+      RELEASE_PAYLOAD: ${{ toJson(github.event) }}
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -17,22 +19,19 @@ jobs:
 
     - name: download chart & index repo
       run: |
-        echo PAYLOAD START
-        echo  ${{ toJson(github.event) }}
-        echo PAYLOAD END
-
-        # curl -LO ${{ github.event.client_payload.chart_path }}
-        # helm show chart ${{ github.event.client_payload.chart_path }} | tee chart-info.yaml
-        # chartName=$(cat chart-info.yaml | grep -Po "^name:\s?(.*)$" | cut -d' ' -f2 | tr -d '\r\n')
-        # helmVersion=$(cat chart-info.yaml | grep -Po "^version:\s?(.*)$" | cut -d' ' -f2 | tr -d '\r\n')
-
-        # rm -f chart-info.yaml
-
-        # helm repo index . --url https://alexismtr.github.io/poseidon-helm-chart/ --merge index.yaml
+        curl -LO ${{ github.event.client_payload.chart_path }}
         
-        # cat index.yaml
-        # echo "${chartName}: index version ${helmVersion}"
-        # git status
+        helm show chart ${{ github.event.client_payload.chart_path }} | tee chart-info.yaml
+        chartName=$(cat chart-info.yaml | grep -Po "^name:\s?(.*)$" | cut -d' ' -f2 | tr -d '\r\n')
+        helmVersion=$(cat chart-info.yaml | grep -Po "^version:\s?(.*)$" | cut -d' ' -f2 | tr -d '\r\n')
+
+        rm -f chart-info.yaml
+
+        helm repo index . --url https://alexismtr.github.io/poseidon-helm-chart/ --merge index.yaml
+        
+        cat index.yaml
+        echo "${chartName}: index version ${helmVersion}"
+        git status
         # git add .
         # git commit -a -m "${chartName}: index version ${helmVersion}"
         # git push

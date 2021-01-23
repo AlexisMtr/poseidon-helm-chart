@@ -13,25 +13,23 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-        path: ./helm-repo
         token: ${{ secret.PAT_GITHUB }}
 
-    - name: Checkout ${{ github.event.client_payload.chart_repository }}
-      uses: actions/checkout@v2
-      with:
-        repository: ${{ github.event.client_payload.chart_repository }}
-        path: ./helm-chart
-        token: ${{ secret.PAT_GITHUB }}
-
-    - name: Package Chart
+    - name: download chart & index repo
       run: |
-        helmVersion=$(grep -Po "^version:\s?(\d+\.\d+\.\d+)$" ./helm-chart/${{ github.event.client_payload.chart_path}}/Chart.yaml | sed -E 's/version:\s?//')
-        appVersion=$(grep -Po "^appVersion:\s?(\d+\.\d+\.\d+)$" ./helm-chart/${{ github.event.client_payload.chart_path}}/Chart.yaml |sed -E 's/appVersion:\s?//')
-        chartName=$(grep -Po "^name:\s?(.+)$" ./helm-chart/${{ github.event.client_payload.chart_path}}/Chart.yaml | sed -E 's/name:\s?//')
+        curl -LO ${{ github.event.client_payload.chart_path }}
 
-        helm package ./helm-chart/${{ github.event.client_payload.chart_path}} -u -d ./helm-repo
-        cd ./helm-repo
+        helm show chart ${{ github.event.client_payload.chart_path }} | tee chart-info.yaml
+        chartName=$(cat chart-info.yaml | grep -Po "^name:\s?(.*)$" | cut -d' ' -f2 | tr -d '\r\n')
+        helmVersion=$(cat chart-info.yaml | grep -Po "^version:\s?(.*)$" | cut -d' ' -f2 | tr -d '\r\n')
+
+        rm -f chart-info.yaml
+
         helm repo index . --url https://alexismtr.github.io/poseidon-helm-chart/ --merge index.yaml
-        git add .
-        git commit -a -m "$chartName: index version $helmVersion (appVersion $appVersion)"
-        git push
+        
+        cat index.yaml
+        echo "${chartName}: index version ${helmVersion}"
+        git status
+        # git add .
+        # git commit -a -m "${chartName}: index version ${helmVersion}"
+        # git push

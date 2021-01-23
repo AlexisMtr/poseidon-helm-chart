@@ -13,7 +13,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-        token: ${{ secret.PAT_GITHUB }}
+        token: ${{ secrets.PAT_GITHUB }}
 
     - name: download chart & index repo
       run: |

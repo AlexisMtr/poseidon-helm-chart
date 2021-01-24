@@ -19,9 +19,12 @@ jobs:
 
     - name: download chart & index repo
       run: |
-        curl -LO ${{ github.event.client_payload.chart_path }}
+        curl -L -o ${{ github.event.client_payload.name }} \
+          -H "Authorization: token ${{ secrets.PAT_GITHUB }}" \
+          -H 'Accept: application/octet-stream' \
+          ${{ github.event.client_payload.uri }}
         
-        helm show chart ${{ github.event.client_payload.chart_path }} | tee chart-info.yaml
+        helm show chart ${{ github.event.client_payload.name }} | tee chart-info.yaml
         chartName=$(cat chart-info.yaml | grep -Po "^name:\s?(.*)$" | cut -d' ' -f2 | tr -d '\r\n')
         helmVersion=$(cat chart-info.yaml | grep -Po "^version:\s?(.*)$" | cut -d' ' -f2 | tr -d '\r\n')
 

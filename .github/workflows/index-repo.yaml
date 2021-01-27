@@ -32,6 +32,9 @@ jobs:
 
         helm repo index . --url https://alexismtr.github.io/poseidon-helm-chart/ --merge index.yaml
         
+        git config user.email "${{ github.actor }}@users.noreply.github.com"
+        git config user.name "${{ github.actor }}"
+
         git add .
         git commit -a -m "${chartName}: index version ${helmVersion}"
         git push

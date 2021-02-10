@@ -1,9 +1,27 @@
 apiVersion: v1
 entries:
+  angelie:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-02-10T21:03:56.285448613Z"
+    description: Poseidon's component Angelie
+    digest: b6f9ef930d3be772184cae086caf1c76fc96a1ea16752296239d12ea17a8b7a1
+    keywords:
+    - decoder
+    - poseidon
+    - angelie
+    - golang
+    maintainers:
+    - name: AlexisMtr
+    name: angelie
+    type: application
+    urls:
+    - https://alexismtr.github.io/poseidon-helm-chart/angelie-1.0.0.tgz
+    version: 1.0.0
   athena:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-01-27T21:32:48.905259321Z"
+    created: "2021-02-10T21:03:56.286566919Z"
     description: API component of Poseidon project
     digest: 1ee69e3e377f2b87c9a4c189ea1584dee8b77d961822a668b94ec7b3ce9d243a
     name: athena
@@ -13,7 +31,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2021-01-27T21:32:48.904788819Z"
+    created: "2021-02-10T21:03:56.286021716Z"
     description: API component of Poseidon project
     digest: 97d5f149bec8391a601e7e075cf21c7c7ed09ada7738c43445df56b3bf8dfb20
     name: athena
@@ -21,4 +39,4 @@ entries:
     urls:
     - https://alexismtr.github.io/poseidon-helm-chart/athena-0.1.0.tgz
     version: 0.1.0
-generated: "2021-01-27T21:32:48.904048015Z"
+generated: "2021-02-10T21:03:56.272102838Z"

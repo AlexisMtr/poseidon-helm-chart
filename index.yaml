@@ -3,7 +3,7 @@ entries:
   amphitrite:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-02-27T13:22:23.564125101Z"
+    created: "2021-02-27T13:41:34.029584449Z"
     description: REST API for Poseidon Swimmingpool solution
     digest: 9c5ebb5eb159e1b5283d52ba84d002efbd86d5316390b72d511531c004223b8f
     name: amphitrite
@@ -13,7 +13,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-02-27T13:22:23.563518396Z"
+    created: "2021-02-27T13:41:34.028982746Z"
     description: REST API for Poseidon Swimmingpool solution
     digest: d5557d2ebac2ebd6f10915f7c5cdab2c0e84b5b1572983328e0b105be5437f8d
     name: amphitrite
@@ -24,7 +24,24 @@ entries:
   angelie:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-02-27T13:22:23.564691906Z"
+    created: "2021-02-27T13:41:34.037739899Z"
+    description: Poseidon's component Angelie
+    digest: 5f2e5404f45dc4ffba40db3aec3583ad4948be830060e9580933dadfd0e41379
+    keywords:
+    - decoder
+    - poseidon
+    - angelie
+    - golang
+    maintainers:
+    - name: AlexisMtr
+    name: angelie
+    type: application
+    urls:
+    - https://alexismtr.github.io/poseidon-helm-chart/angelie-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-02-27T13:41:34.030145653Z"
     description: Poseidon's component Angelie
     digest: b6f9ef930d3be772184cae086caf1c76fc96a1ea16752296239d12ea17a8b7a1
     keywords:
@@ -42,7 +59,7 @@ entries:
   athena:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-02-27T13:22:23.565931516Z"
+    created: "2021-02-27T13:41:34.039188607Z"
     description: API component of Poseidon project
     digest: 1ee69e3e377f2b87c9a4c189ea1584dee8b77d961822a668b94ec7b3ce9d243a
     name: athena
@@ -52,7 +69,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2021-02-27T13:22:23.565312811Z"
+    created: "2021-02-27T13:41:34.038594304Z"
     description: API component of Poseidon project
     digest: 97d5f149bec8391a601e7e075cf21c7c7ed09ada7738c43445df56b3bf8dfb20
     name: athena
@@ -60,4 +77,4 @@ entries:
     urls:
     - https://alexismtr.github.io/poseidon-helm-chart/athena-0.1.0.tgz
     version: 0.1.0
-generated: "2021-02-27T13:22:23.562616289Z"
+generated: "2021-02-27T13:41:34.02812874Z"

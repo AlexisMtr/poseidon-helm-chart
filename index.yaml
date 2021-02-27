@@ -3,7 +3,7 @@ entries:
   amphitrite:
   - apiVersion: v2
     appVersion: 1.0.1
-    created: "2021-02-27T15:54:34.861403402Z"
+    created: "2021-02-27T17:25:57.608877471Z"
     description: REST API for Poseidon Swimmingpool solution
     digest: 8077801874565022d815d3556b3f6af6ec639c6ae52c2a16f7051bda3f38dce0
     name: amphitrite
@@ -13,7 +13,7 @@ entries:
     version: 1.1.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-02-27T15:54:34.86058388Z"
+    created: "2021-02-27T17:25:57.603625643Z"
     description: REST API for Poseidon Swimmingpool solution
     digest: 9c5ebb5eb159e1b5283d52ba84d002efbd86d5316390b72d511531c004223b8f
     name: amphitrite
@@ -23,7 +23,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-02-27T15:54:34.859880361Z"
+    created: "2021-02-27T17:25:57.602962339Z"
     description: REST API for Poseidon Swimmingpool solution
     digest: d5557d2ebac2ebd6f10915f7c5cdab2c0e84b5b1572983328e0b105be5437f8d
     name: amphitrite
@@ -34,7 +34,7 @@ entries:
   angelie:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-02-27T15:54:34.862627534Z"
+    created: "2021-02-27T17:25:57.61053438Z"
     description: Poseidon's component Angelie
     digest: 5f2e5404f45dc4ffba40db3aec3583ad4948be830060e9580933dadfd0e41379
     keywords:
@@ -51,7 +51,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-02-27T15:54:34.861978817Z"
+    created: "2021-02-27T17:25:57.609692376Z"
     description: Poseidon's component Angelie
     digest: b6f9ef930d3be772184cae086caf1c76fc96a1ea16752296239d12ea17a8b7a1
     keywords:
@@ -69,7 +69,17 @@ entries:
   athena:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-02-27T15:54:34.864470283Z"
+    created: "2021-02-27T17:25:57.613787098Z"
+    description: API component of Poseidon project
+    digest: d66134c230818297df69352eee10582f3ac4080c492e5ad3119bfb3c3b7cc4fc
+    name: athena
+    type: application
+    urls:
+    - https://alexismtr.github.io/poseidon-helm-chart/athena-1.1.1.tgz
+    version: 1.1.1
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-02-27T17:25:57.613054094Z"
     description: API component of Poseidon project
     digest: fc17f2ea713d154129f84296fafb03995a5327b969fc85620a8bd1181cc9293b
     name: athena
@@ -79,7 +89,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-02-27T15:54:34.863796665Z"
+    created: "2021-02-27T17:25:57.61236969Z"
     description: API component of Poseidon project
     digest: 1ee69e3e377f2b87c9a4c189ea1584dee8b77d961822a668b94ec7b3ce9d243a
     name: athena
@@ -89,7 +99,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2021-02-27T15:54:34.86320665Z"
+    created: "2021-02-27T17:25:57.611640586Z"
     description: API component of Poseidon project
     digest: 97d5f149bec8391a601e7e075cf21c7c7ed09ada7738c43445df56b3bf8dfb20
     name: athena
@@ -97,4 +107,4 @@ entries:
     urls:
     - https://alexismtr.github.io/poseidon-helm-chart/athena-0.1.0.tgz
     version: 0.1.0
-generated: "2021-02-27T15:54:34.858975837Z"
+generated: "2021-02-27T17:25:57.602035234Z"

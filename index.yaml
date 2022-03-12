@@ -178,4 +178,15 @@ entries:
     urls:
     - https://alexismtr.github.io/poseidon-helm-chart/athena-0.1.0.tgz
     version: 0.1.0
-generated: "2022-02-18T13:24:06.866206359Z"
+  emqx:
+  - apiVersion: v2
+    appVersion: v4.1.1
+    created: "2022-03-12T16:17:23.0008782+01:00"
+    description: A Helm chart for EMQ X
+    digest: 0c084f5dfd6f284e7e9acbdce698fe9b4aca62b1fbf52034d70f71609b41543e
+    name: emqx
+    type: application
+    urls:
+    - https://alexismtr.github.io/poseidon-helm-chart/emqx-v4.1.1.tgz
+    version: v4.1.1
+generated: "2022-03-12T16:17:22.953721+01:00"
